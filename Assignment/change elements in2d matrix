@@ -1,0 +1,55 @@
+public class Main {
+  public static void main (String args[]) {
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int [][]A=new int[m][n];
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                A[i][j]=sc.nextInt();
+            }
+        }
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(A[i][j]==0)
+                {
+                    check(A,i,j);
+                }
+            }
+        }
+        
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(A[i][j]==2) A[i][j]=0;
+            }
+        }
+         for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                System.out.print(A[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void check(int [][]A,int i,int j)
+    {
+        // int result;
+        for(int k=0;k<A[0].length;k++)
+        {
+            A[i][k]=2;
+            
+        }
+        for(int l=0;l<A.length;l++)
+        {
+            A[l][j]=2;
+        }
+        // return 1;
+    }
+}
