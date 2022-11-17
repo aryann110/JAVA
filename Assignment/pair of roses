@@ -1,0 +1,55 @@
+public class Main {
+    public static void main(String[] args) {
+		Scanner nc=new Scanner(System.in);
+		int t=nc.nextInt();
+		while(t>0) {
+		int n=nc.nextInt();
+		int [] arr=new int[n];
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=nc.nextInt(); 
+		}
+		int target=nc.nextInt(); 
+		Sort(arr);
+		int [] ans=targetsum(arr,target);
+		System.out.println("Deepak should buy roses whose prices are "+ans[0]+" and "+ans[1]+".");
+		t--;
+		}
+	}
+	public static void Sort(int[] arr) {
+		// TODO Auto-generated method stub
+		for (int i = 1; i < arr.length; i++) {
+			int item = arr[i];
+			int j = i - 1;
+			while (j >= 0 && arr[j] > item) {
+				arr[j + 1] = arr[j];
+				j--;
+			}
+			j++;
+			arr[j]=item;
+
+		}
+
+	}
+	public static int[] targetsum(int [] arr, int target){
+        int i=0;
+        int j=arr.length-1;
+        int ans[]=new int[2];
+        int diff=Integer.MAX_VALUE; 
+        for (int k = 0; k < arr.length-1; k++) {
+			for (int k2 = k+1; k2 < arr.length; k2++) {
+				if(arr[k]+arr[k2]==target) {
+					int a=arr[k];
+					int b=arr[k2];
+					if((b-a)<diff) {
+						diff=b-a;
+						ans[0]=a;
+						ans[1]=b;
+					}
+				}
+			}
+		}
+        return ans;
+       
+    }
+
+}
