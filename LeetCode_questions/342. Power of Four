@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        
+     if(n==1){
+            return true;
+        }
+        else{
+        boolean a=power(1,n,0);
+        return a;
+        }
+    }
+    public static boolean power(long a,int n,int b){
+        if(a>n){
+            return false;
+        }
+        if(a==n){
+            return true;
+        }
+       return power(a*4,n,b+1);
+    }
+}
