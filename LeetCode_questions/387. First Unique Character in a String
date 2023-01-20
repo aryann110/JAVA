@@ -1,0 +1,31 @@
+class Solution {
+    public int firstUniqChar(String s) {
+        String a=max(s);
+        int b=Integer.parseInt(a);
+        return b;
+    }
+    public static String max(String s) {
+			int ei=0;
+			int si=0;
+			String ans="";
+			int []frq=new int[256];
+			while(ei<s.length()) {
+				char ch=s.charAt(ei);
+				frq[ch]+=1;
+				ei++;
+			}
+			while(si<s.length()){
+				char ch=s.charAt(si);
+				if(frq[ch]==1){
+					ans=""+si;
+					break;
+				}else{
+					ans=""+"-1";
+				}
+				si++;
+			}
+			return ans;
+			
+			
+		}
+}
