@@ -1,0 +1,24 @@
+class Solution {
+    public int reverse(int x) {
+        int a=0;
+        int mul=10;
+        while(x!=0){
+            int rem=x%10;
+           
+            x=x/10;
+             if (a > Integer.MAX_VALUE/10 || (a == Integer.MAX_VALUE / 10 && rem > 7)) return 0;
+            if (a < Integer.MIN_VALUE/10 || (a == Integer.MIN_VALUE / 10 && rem < -8)) return 0;
+            mul=mul*10;
+             a=a*10+rem;
+        }
+        if(a>Integer.MAX_VALUE){
+            return 0;
+        }
+        else if(a<Integer.MIN_VALUE){
+            return 0;
+        }
+        else{
+        return a;
+        }
+    }
+}
